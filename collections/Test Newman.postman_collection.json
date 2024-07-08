@@ -1,0 +1,75 @@
+Nie możesz tworzyć, edytować ani przesyłać plików. … Za mało miejsca. Zyskaj 100 GB miejsca na dane przez 1 miesiąc za 8,99 zł 2,25 zł (cena przygotowana specjalnie dla Ciebie).
+{
+	"info": {
+		"_postman_id": "d239e5be-9ea2-439f-8045-13842a2c6261",
+		"name": "Test Newman",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Get API main endpoint",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://naukaapi.testoneo.com/api/",
+					"protocol": "https",
+					"host": [
+						"naukaapi",
+						"testoneo",
+						"com"
+					],
+					"path": [
+						"api",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get API main endpoint ENV",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test.skip(\"Response time is less than 30ms\", function () {\r",
+							"    pm.expect(pm.response.responseTime).to.be.below(30);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{api-url}}",
+					"host": [
+						"{{api-url}}"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
